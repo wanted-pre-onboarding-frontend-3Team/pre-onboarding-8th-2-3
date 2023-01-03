@@ -2,8 +2,7 @@
   "extends": ["stylelint-config-standard-scss", "stylelint-config-recess-order"],
   "overrides": [
     {
-      "files": ["**/*.scss"],
-      "customSyntax": "postcss-scss"
+      "files": ["**/*.scss"]
     }
   ],
   "plugins": ["stylelint-declaration-strict-value"],
