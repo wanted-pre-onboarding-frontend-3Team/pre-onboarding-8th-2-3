@@ -1,18 +1,11 @@
-import { useMemo, useState } from 'react';
-import styles from './App.module.scss';
-import cn from 'classnames';
+import Main from 'pages/Main';
+import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
-  const [state, setState] = useState(false);
-
-  const classname = useMemo(() => {
-    return cn(styles.test, { [styles.classnames]: state });
-  }, []);
-
   return (
-    <div className={classname}>
-      <button type="button">버튼</button>
-    </div>
+    <Routes>
+      <Route path="/" element={<Main />} />
+    </Routes>
   );
 };
 
