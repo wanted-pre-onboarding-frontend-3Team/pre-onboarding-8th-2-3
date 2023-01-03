@@ -1,5 +1,5 @@
+import { issueCards } from 'constants/common';
 import Cards from './Cards';
-import { issueCards } from './constants/common';
 import styles from './Container.module.scss';
 
 const Container = () => {

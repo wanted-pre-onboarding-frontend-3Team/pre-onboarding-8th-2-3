@@ -1,10 +1,8 @@
 .container {
   position: fixed;
-  top: 30vh;
-  left: 10%;
+  top: 20vh;
+  left: 50%;
   z-index: 100;
-  width: 80%;
-  height: 200px;
   overflow: hidden;
-  background: white;
+  transform: translateX(-50%);
 }

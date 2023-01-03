@@ -8,7 +8,7 @@ const Content = ({ title }) => {
   const detailCardHandler = useCallback(() => navigate('?modal=detail'), [navigate]);
 
   return (
-    <li className={styles.content} role="presentation" onClick={detailCardHandler}>
+    <li className={styles.content} role="presentation" onClick={detailCardHandler} draggable>
       {title}
     </li>
   );
