@@ -1,0 +1,35 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/position';
+
+.outer {
+  @include position.fixed(0);
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(colors.$GS_CONTENT_1, 0.1);
+}
+
+.inner {
+  @include position.posCenter;
+  min-width: 200px;
+  min-height: 200px;
+  padding: 12px 16px;
+  background-color: colors.$GS_BG_SECONDARY;
+  border-radius: 4px;
+}
+
+.close {
+  @include position.absolute(6px 6px auto auto);
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  transition: 300ms;
+
+  &:hover {
+    background-color: colors.$GS_BORDER;
+  }
+
+  &::after {
+    font-size: 16px;
+    content: '\00d7';
+  }
+}
