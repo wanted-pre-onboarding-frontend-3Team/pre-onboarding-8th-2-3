@@ -1,0 +1,15 @@
+@use 'styles/constants/colors';
+
+.content {
+  padding: 8px 10px;
+  font-size: 14px;
+  font-weight: 400;
+  background: colors.$GS_BG_PRIMARY;
+  border-radius: 5px;
+  box-shadow: colors.$DS_1;
+
+  &:hover {
+    cursor: pointer;
+    background: colors.$GS_BORDER;
+  }
+}

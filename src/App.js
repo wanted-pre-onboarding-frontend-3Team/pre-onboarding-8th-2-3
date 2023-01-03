@@ -1,18 +1,15 @@
-import { useMemo, useState } from 'react';
-import styles from './App.module.scss';
-import cn from 'classnames';
+import Container from 'components/Container';
+import Modal from 'components/modal/Modal';
+import { useSearchParams } from 'react-router-dom';
 
 const App = () => {
-  const [state, setState] = useState(false);
-
-  const classname = useMemo(() => {
-    return cn(styles.test, { [styles.classnames]: state });
-  }, []);
+  const [searchParams] = useSearchParams();
 
   return (
-    <div className={classname}>
-      <button type="button">버튼</button>
-    </div>
+    <>
+      <Container />
+      {searchParams.get('modal') && <Modal />}
+    </>
   );
 };
 
