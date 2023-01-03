@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { useMemo, useState } from 'react';
+import styles from './App.module.scss';
+import cn from 'classnames';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [state, setState] = useState(false);
+
+  const classname = useMemo(() => {
+    return cn(styles.test, { [styles.classnames]: state });
+  }, []);
+
+  return <div className={classname}>ddd</div>;
 }
 
 export default App;

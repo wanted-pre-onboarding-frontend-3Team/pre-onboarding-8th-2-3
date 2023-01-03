@@ -1,0 +1,39 @@
+{
+  "issues": [
+    {
+      "id": 1,
+      "order": 0,
+      "title": "",
+      "content": "",
+      "endDate": "",
+      "state": "",
+      "manager": ""
+    }
+  ],
+  "managers": [
+    {
+      "id": 1,
+      "name": "전해강"
+    },
+    {
+      "id": 2,
+      "name": "김안나"
+    },
+    {
+      "id": 3,
+      "name": "박혜선"
+    },
+    {
+      "id": 4,
+      "name": "안지웅"
+    },
+    {
+      "id": 5,
+      "name": "이윤진"
+    },
+    {
+      "id": 6,
+      "name": "최주은"
+    }
+  ]
+}
