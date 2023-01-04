@@ -14,7 +14,9 @@ const Container = () => {
       .then((issues) => {
         setList(initializeIssues(issues));
       })
-      .catch((error) => console.log(error));
+      .catch(() => {
+        // 에러 처리
+      });
   }, [setList]);
 
   const initializeIssues = (issues) => {
