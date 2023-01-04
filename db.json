@@ -2,7 +2,7 @@
   "issues": [
     {
       "id": 1,
-      "order": 0,
+      "order": 2,
       "title": "asd",
       "content": "asd",
       "endDate": "2023-01-04",
@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "order": 0,
+      "order": 2,
       "title": "zxc",
       "content": "zxc",
       "endDate": "2023-01-04",
@@ -20,7 +20,7 @@
     },
     {
       "id": 3,
-      "order": 0,
+      "order": 1,
       "title": "qwe",
       "content": "qwe",
       "endDate": "2023-01-04",
@@ -29,7 +29,7 @@
     },
     {
       "id": 4,
-      "order": 0,
+      "order": 1,
       "title": "fgh",
       "content": "fgh",
       "endDate": "2023-01-04",
@@ -38,7 +38,7 @@
     },
     {
       "id": 5,
-      "order": 0,
+      "order": 1,
       "title": "rty",
       "content": "rty",
       "endDate": "2023-01-04",

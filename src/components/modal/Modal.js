@@ -1,4 +1,5 @@
 import Backdrop from 'components/UI/Backdrop';
+import { ADD_MODAL, DETAIL_MODAL } from 'constants/common';
 import { useCallback, useMemo } from 'react';
 import ReactDOM from 'react-dom';
 import { useNavigate, useSearchParams } from 'react-router-dom';
@@ -14,8 +15,8 @@ const ModalOverlay = () => {
   const Content = useCallback(() => {
     let component;
 
-    if (page === 'add') component = <AddModal />;
-    else if (page === 'detail') component = <DetailModal />;
+    if (page === ADD_MODAL) component = <AddModal />;
+    else if (page === DETAIL_MODAL) component = <DetailModal />;
 
     return component;
   }, [page]);
