@@ -7,7 +7,10 @@ import { useNavigate } from 'react-router-dom';
 const Cards = ({ title, list }) => {
   const navigate = useNavigate();
 
-  const addCardHandler = useCallback(() => navigate('/?modal=add'), [navigate]);
+  const addCardHandler = useCallback(
+    () => navigate(`/?modal=add&state=${title.toLowerCase().replace(/ /g, '')}`),
+    [navigate],
+  );
 
   return (
     <section className={styles.container}>
