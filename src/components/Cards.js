@@ -3,13 +3,14 @@ import Content from './Content';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { sortIssueArray } from 'utils/sortIssueArray';
 
 const Cards = ({ title, issue }) => {
   const navigate = useNavigate();
 
   const addCardHandler = useCallback(() => navigate('/?modal=add'), [navigate]);
 
-  const filteredIssue = issue.filter((data) => data.state === title.toLowerCase().replace(/ /g, ''));
+  const filteredIssue = sortIssueArray(issue, title);
 
   return (
     <section className={styles.container}>

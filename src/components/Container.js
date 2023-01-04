@@ -20,11 +20,11 @@ const Container = () => {
   }, [fetchIssueHandler]);
 
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       {issueCards.map((card) => (
         <Cards key={card} title={card} issue={issue} />
       ))}
-    </div>
+    </main>
   );
 };
 

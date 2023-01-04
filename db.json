@@ -3,7 +3,7 @@
     {
       "id": 1,
       "order": 2,
-      "title": "asd",
+      "title": "두번째",
       "content": "asd",
       "endDate": "2023-01-04",
       "state": "todo",
@@ -12,7 +12,7 @@
     {
       "id": 2,
       "order": 2,
-      "title": "zxc",
+      "title": "두번째",
       "content": "zxc",
       "endDate": "2023-01-04",
       "state": "doing",
@@ -20,8 +20,8 @@
     },
     {
       "id": 3,
-      "order": 1,
-      "title": "qwe",
+      "order": 2,
+      "title": "두번째",
       "content": "qwe",
       "endDate": "2023-01-04",
       "state": "done",
@@ -30,7 +30,7 @@
     {
       "id": 4,
       "order": 1,
-      "title": "fgh",
+      "title": "첫번째",
       "content": "fgh",
       "endDate": "2023-01-04",
       "state": "todo",
@@ -39,10 +39,19 @@
     {
       "id": 5,
       "order": 1,
-      "title": "rty",
+      "title": "첫번째",
       "content": "rty",
       "endDate": "2023-01-04",
       "state": "doing",
+      "manager": "지웅"
+    },
+    {
+      "id": 6,
+      "order": 1,
+      "title": "첫번째",
+      "content": "rty",
+      "endDate": "2023-01-04",
+      "state": "done",
       "manager": "지웅"
     }
   ],
