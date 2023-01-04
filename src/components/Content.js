@@ -14,4 +14,5 @@ const Content = ({ title }) => {
   );
 };
 
+// TODO: React.memo를 써야할지 퍼포먼스 탭 확인!
 export default Content;
