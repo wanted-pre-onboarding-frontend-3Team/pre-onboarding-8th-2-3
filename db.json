@@ -1,49 +1,142 @@
 {
   "issues": [
     {
-      "id": 1,
-      "order": 0,
-      "title": "asd",
-      "content": "asd",
-      "endDate": "2023-01-04",
-      "state": "todo",
-      "manager": "지웅"
+      "state": "Todo",
+      "list": [
+        {
+          "id": 1,
+          "order": 0,
+          "title": "asd",
+          "content": "asd",
+          "endDate": "2023-01-04",
+          "manager": "지웅"
+        },
+        {
+          "id": 2,
+          "order": 1,
+          "title": "zxc",
+          "content": "zxc",
+          "endDate": "2023-01-04",
+          "manager": null
+        },
+        {
+          "id": 3,
+          "order": 2,
+          "title": "qwe",
+          "content": "qwe",
+          "endDate": "2023-01-04",
+          "manager": "윤진"
+        },
+        {
+          "id": 4,
+          "order": 3,
+          "title": "fgh",
+          "content": "fgh",
+          "endDate": "2023-01-04",
+          "manager": "지웅"
+        },
+        {
+          "id": 5,
+          "order": 0,
+          "title": "rty",
+          "content": "rty",
+          "endDate": "2023-01-04",
+          "state": "doing",
+          "manager": null
+        }
+      ]
     },
     {
-      "id": 2,
-      "order": 0,
-      "title": "zxc",
-      "content": "zxc",
-      "endDate": "2023-01-04",
-      "state": "doing",
-      "manager": "지웅"
+      "state": "Doing",
+      "list": [
+        {
+          "id": 54,
+          "order": 0,
+          "title": "asd",
+          "content": "asd",
+          "endDate": "2023-01-04",
+          "manager": "해강"
+        },
+        {
+          "id": 55,
+          "order": 1,
+          "title": "zxc",
+          "content": "zxc",
+          "endDate": "2023-01-04",
+          "manager": "혜선"
+        },
+        {
+          "id": 56,
+          "order": 2,
+          "title": "qwe",
+          "content": "qwe",
+          "endDate": "2023-01-04",
+          "manager": null
+        },
+        {
+          "id": 57,
+          "order": 3,
+          "title": "fgh",
+          "content": "fgh",
+          "endDate": "2023-01-04",
+          "manager": "안나"
+        },
+        {
+          "id": 58,
+          "order": 4,
+          "title": "rty",
+          "content": "rty",
+          "endDate": "2023-01-04",
+          "state": "doing",
+          "manager": null
+        }
+      ]
     },
     {
-      "id": 3,
-      "order": 0,
-      "title": "qwe",
-      "content": "qwe",
-      "endDate": "2023-01-04",
-      "state": "done",
-      "manager": "지웅"
-    },
-    {
-      "id": 4,
-      "order": 0,
-      "title": "fgh",
-      "content": "fgh",
-      "endDate": "2023-01-04",
-      "state": "todo",
-      "manager": "지웅"
-    },
-    {
-      "id": 5,
-      "order": 0,
-      "title": "rty",
-      "content": "rty",
-      "endDate": "2023-01-04",
-      "state": "doing",
-      "manager": "지웅"
+      "state": "Done",
+      "list": [
+        {
+          "id": 77,
+          "order": 0,
+          "title": "asd",
+          "content": "asd",
+          "endDate": "2023-01-04",
+          "manager": "지웅"
+        },
+        {
+          "id": 78,
+          "order": 1,
+          "title": "zxc",
+          "content": "zxc",
+          "endDate": "2023-01-04",
+          "manager": null
+        },
+        {
+          "id": 79,
+          "order": 2,
+          "title": "qwe",
+          "content": "qwe",
+          "endDate": "2023-01-04",
+          "manager": "윤진"
+        },
+        {
+          "id": 80,
+          "order": 3,
+          "title": "fgh",
+          "content": "fgh",
+          "endDate": "2023-01-04",
+          "manager": "지웅"
+        },
+        {
+          "id": 81,
+          "order": 4,
+          "title": "rty",
+          "content": "rty",
+          "endDate": "2023-01-04",
+          "state": "doing",
+          "manager": null
+        }
+      ]
     }
   ],
   "managers": [

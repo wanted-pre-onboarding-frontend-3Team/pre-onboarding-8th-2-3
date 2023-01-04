@@ -1,4 +1,10 @@
-@import "base/reset";
-@import "base/more";
-@import "base/fonts";
-@import "base/common";
+@import 'base/reset';
+@import 'base/more';
+@import 'base/fonts';
+@import 'base/common';
+
+html {
+  background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
+  background-repeat: no-repeat;
+  height: 100vh;
+}
