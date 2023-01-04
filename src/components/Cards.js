@@ -4,9 +4,7 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const DUMMY_CONTENT = ['asdasd', 'asddgg', 'stejn', 'btdjkn'];
-
-const Cards = ({ title }) => {
+const Cards = ({ title, list }) => {
   const navigate = useNavigate();
 
   const addCardHandler = useCallback(() => navigate('/?modal=add'), [navigate]);
@@ -15,8 +13,8 @@ const Cards = ({ title }) => {
     <section className={styles.container}>
       <p>{title}</p>
       <ul className={styles.content}>
-        {DUMMY_CONTENT.map((dummy) => (
-          <Content key={dummy} title={dummy} />
+        {list.map((issue) => (
+          <Content key={issue.id} title={issue.title} id={issue.id} />
         ))}
       </ul>
       <button type="button" className={styles['add-button']} onClick={addCardHandler}>
