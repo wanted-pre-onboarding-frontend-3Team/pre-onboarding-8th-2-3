@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import styles from './Modal.module.scss';
 // import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
@@ -8,20 +8,22 @@ import Modal from './Modal';
 
 const ModalWrapper = () => {
   const setModalState = useSetRecoilState(changeModalState);
+  const closeModal = useCallback(() => {
+    setModalState(false);
+    window.history.back();
+  }, [setModalState]);
+
   useEffect(() => {
-    const closeModal = () => {
-      setModalState(false);
-    };
-    window.history.pushState({ page: 'modal' }, document.title);
+    window.history.pushState({ page: 'modal' }, document.title, '/modal');
     window.addEventListener('popstate', closeModal);
     return () => {
       window.removeEventListener('popstate', closeModal);
     };
-  }, []);
+  }, [closeModal]);
 
   return (
     <ModalPortal>
-      <div className={styles.bg} role="presentation" onClick={() => setModalState(false)} />
+      <div className={styles.bg} role="presentation" onClick={closeModal} />
       <Modal />
     </ModalPortal>
   );
