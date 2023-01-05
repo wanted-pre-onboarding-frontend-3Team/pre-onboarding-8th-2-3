@@ -1,10 +1,6 @@
 import { atom } from 'recoil';
 
-export const issues = atom({
-  key: 'issues',
-  default: {
-    todo: [],
-    doing: [],
-    done: [],
-  },
+export const issuesState = atom({
+  key: 'issuesState',
+  default: [],
 });
