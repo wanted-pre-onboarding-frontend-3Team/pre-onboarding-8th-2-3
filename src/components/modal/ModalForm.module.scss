@@ -1,0 +1,73 @@
+@use '../../styles/constants/colors';
+
+.container {
+  width: 500px;
+  height: 600px;
+  padding: 5%;
+  margin: 0 auto;
+  background: colors.$WHITE;
+  border-radius: 20px;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.issue-title {
+  width: 90%;
+  margin-bottom: 10%;
+  font-size: 2em;
+  border-radius: 6px;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.issue-title:focus {
+  border: solid 0.1em colors.$O_HOVER;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.issue-content {
+  width: 90%;
+  height: 30%;
+  padding: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 2em;
+  resize: none;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.issue-content:focus {
+  border: solid 0.1em colors.$O_HOVER;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.issue-state {
+  display: block;
+  width: 50%;
+  margin-top: 0.5em;
+  margin-bottom: 2em;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.issue-date {
+  padding: 0.3em;
+  margin-bottom: 1em;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.issue-date:focus {
+  border: solid 0.1em colors.$O_HOVER;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.issue-button {
+  padding: 0.3em 1.3em;
+  margin-top: 1em;
+  margin-right: 1em;
+  font-size: 1em;
+  font-weight: 600;
+  color: white;
+  background-color: rgb(2, 138, 249);
+  border-radius: 5px;
+}
