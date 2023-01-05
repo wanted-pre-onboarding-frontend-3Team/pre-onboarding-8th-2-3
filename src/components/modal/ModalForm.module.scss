@@ -1,0 +1,50 @@
+@use 'styles/constants/colors';
+
+/* stylelint-disable-next-line selector-class-pattern */
+.button-wrapper {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  width: 300px;
+  margin-top: 20px;
+
+  button {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.add-button {
+  &:hover {
+    color: colors.$WHITE;
+    background: colors.$B_HOVER;
+    border: 1px solid white;
+  }
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.cancel-button {
+  &:hover {
+    color: colors.$WHITE;
+    background: colors.$BE;
+    border: 1px solid white;
+  }
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.delete-button {
+  position: absolute;
+  bottom: 20px;
+  left: 100px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  &:hover {
+    color: colors.$WHITE;
+    background: colors.$BE;
+    border: 1px solid white;
+  }
+}

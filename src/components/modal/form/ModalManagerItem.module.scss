@@ -1,0 +1,9 @@
+@use 'styles/constants/colors';
+
+.manager {
+  width: 200px;
+  padding-bottom: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  border-bottom: 1px solid colors.$B_BORDER;
+}
