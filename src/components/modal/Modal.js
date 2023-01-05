@@ -2,27 +2,17 @@ import Backdrop from 'components/UI/Backdrop';
 import { useCallback, useMemo } from 'react';
 import ReactDOM from 'react-dom';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import AddModal from './AddModal';
-import DetailModal from './DetailModal';
+import EditModal from './EditModal';
 import styles from './Modal.module.scss';
 
-const ModalOverlay = () => {
+const ModalOverlay = ({ onClose }) => {
   const [searchParams] = useSearchParams();
 
   const page = useMemo(() => searchParams.get('modal'), [searchParams]);
 
-  const Content = useCallback(() => {
-    let component;
-
-    if (page === 'add') component = <AddModal />;
-    else if (page === 'detail') component = <DetailModal />;
-
-    return component;
-  }, [page]);
-
   return (
     <div className={styles.container}>
-      <Content />
+      <EditModal mode={page} onClose={onClose} />
     </div>
   );
 };
@@ -35,7 +25,7 @@ const Modal = () => {
   return (
     <>
       {ReactDOM.createPortal(<Backdrop onClose={closeModalHandler} />, document.getElementById('backdrop-root'))}
-      {ReactDOM.createPortal(<ModalOverlay />, document.getElementById('overlay-root'))}
+      {ReactDOM.createPortal(<ModalOverlay onClose={closeModalHandler} />, document.getElementById('overlay-root'))}
     </>
   );
 };
