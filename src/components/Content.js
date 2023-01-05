@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { convertPathTitle } from 'utils/sortIssueArray';
 import styles from './Content.module.scss';
 
-const Content = ({ title, id, pathState }) => {
+const Content = ({ title, id, pathState, manager }) => {
   const navigate = useNavigate();
 
   const detailCardHandler = useCallback(
@@ -13,7 +13,8 @@ const Content = ({ title, id, pathState }) => {
 
   return (
     <li className={styles.content} role="presentation" onClick={detailCardHandler} draggable>
-      {title}
+      <span>{title}</span>
+      {manager && <span className={styles.profile}> {manager.slice(0, 1)}</span>}
     </li>
   );
 };

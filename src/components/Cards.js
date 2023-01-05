@@ -17,7 +17,9 @@ const Cards = ({ title, list, loading }) => {
       <p>{title}</p>
       <ul className={styles.content}>
         {!loading &&
-          filteredIssue.map((issue) => <Content key={issue.id} title={issue.title} id={issue.id} pathState={title} />)}
+          filteredIssue.map((issue) => (
+            <Content key={issue.id} title={issue.title} id={issue.id} pathState={title} manager={issue.manager} />
+          ))}
         {loading && <p className={styles.loading}>loading...</p>}
       </ul>
       <button type="button" className={styles['add-button']} onClick={addCardHandler}>

@@ -13,7 +13,7 @@ export const getManages = () => {
 };
 
 export const postIssue = (data) => {
-  request({
+  return request({
     method: 'POST',
     url: '/issues',
     data,
@@ -21,7 +21,7 @@ export const postIssue = (data) => {
 };
 
 export const editIssue = (id, data) => {
-  request({
+  return request({
     method: 'PUT',
     url: `/issues/${id}`,
     data,
