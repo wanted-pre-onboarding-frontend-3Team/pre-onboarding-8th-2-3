@@ -5,17 +5,17 @@ import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Cards = ({ title, list }) => {
+  // console.log(title, list);
   const navigate = useNavigate();
-
-  const addCardHandler = useCallback(() => navigate('/?modal=add'), [navigate]);
+  const addCardHandler = useCallback(() => navigate(`/?modal=add&state=${title}`), [navigate, title]);
 
   return (
     <section className={styles.container}>
       <p>{title}</p>
       <ul className={styles.content}>
-        {list.map((issue) => (
-          <Content key={issue.id} title={issue.title} id={issue.id} />
-        ))}
+        {list.map((issue) => {
+          return <Content key={issue.id} title={issue.title} id={issue.id} />;
+        })}
       </ul>
       <button type="button" className={styles['add-button']} onClick={addCardHandler}>
         <AiOutlinePlus />
