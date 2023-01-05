@@ -1,6 +1,7 @@
 .container {
   display: flex;
-  justify-content: space-around;
-  width: 850px;
-  margin: 200px auto;
+  gap: 50px;
+  justify-content: flex-start;
+  padding: 0 100px;
+  margin: 100px auto;
 }
