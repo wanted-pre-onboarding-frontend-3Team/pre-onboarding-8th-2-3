@@ -1,0 +1,27 @@
+@use 'styles/constants/colors';
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 10px;
+  font-size: 14px;
+  font-weight: 400;
+  user-select: none;
+  background: colors.$GS_BG_PRIMARY;
+  border-radius: 5px;
+  box-shadow: colors.$DS_1;
+
+  .profile {
+    align-self: flex-end;
+    padding: 5px;
+    font-size: 12px;
+    background-color: colors.$P_BORDER;
+    border-radius: 50%;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background: colors.$GS_BORDER;
+  }
+}
