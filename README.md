@@ -20,7 +20,84 @@ trello 같은 Issue 관리 툴 만들기
 
 - #### 상태관리
 
+Recoil의 atom 함수를 이용해 이슈에 대한 상태를 만들고 저장했습니다.
+
+```js
+// issueState.js
+export const issueState = atom({
+  key: 'issueState',
+  default: [],
+});
+
+export const issuesSelector = selector({
+  key: 'issuesSelector',
+  get: ({ get }) => {
+    const data = get(issueState);
+    return data;
+  },
+
+  set: ({ get, set }, value) => {
+    const data = [...get(issueState)];
+
+    if (value[0] === 'POST') {
+      const newData = value[1];
+      data.push(newData);
+      set(issueState, data);
+    }
+
+    if (value[0] === 'PUT') {
+      const changeIssueIndex = data.findIndex((issue) => issue.id === value[1].id);
+      data[changeIssueIndex] = value[1];
+      set(issueState, data);
+    }
+
+    if (value[0] === 'DELETE') {
+      const deleteData = data.filter((issue) => issue.id !== value[1]);
+      set(issueState, deleteData);
+    }
+  },
+});
+```
+
+selector를 이용해 각 메서드마다 상태를 변경하는 selector를 이용해
+
+```js
+setIssues(['PUT', newIssue]);
+```
+
+selector는 1개의 parameter를 넘겨줄 수 있어 배열로 넘겨주어 처리했습니다.
+
 - #### modal
+
+createPortal을 이용해 Backdrop과 Modal을 이용해 AddModal, DetailModal 구현
+
+```js
+const page = useMemo(() => searchParams.get('modal'), [searchParams]);
+
+const Content = useCallback(() => {
+  let component;
+
+  if (page === 'add') component = <AddModal />;
+  else if (page === 'detail') component = <DetailModal />;
+
+  return component;
+}, [page]);
+
+return (
+  <div className={styles.container}>
+    <Content />
+  </div>
+);
+```
+
+searchParams를 이용해 어떤 모달을 보여줄지 결정
+
+`http://localhost:3000/?modal=detail&state=doing&id=5e29af20-8d9f-11ed-a55d-259ac2198438`
+
+- modal: modal의 종류
+- state: 클릭한 issue의 state
+- id: 클릭한 issue의 id
+
 - #### Drag&Drop
 
 # Commit Convention
