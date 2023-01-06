@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { selectManager } from 'states/selectManagerState';
 import ModalContent from './form/ModalContent';
 import ModalEndDate from './form/ModalEndDate';
@@ -12,17 +12,13 @@ import { deleteIssue, editIssue, getManages, postIssue } from 'models/issue';
 import { v1 } from 'uuid';
 import ModalState from './form/ModalState';
 import { orderHandler } from 'utils/orderFilter';
+import { issueState } from 'states/issueState';
 
 const ModalForm = ({ issue, selectedIssue }) => {
   const [managers, setManagers] = useState([]);
-
+  const setIssues = useSetRecoilState(issueState);
   const selectedManager = useRecoilValue(selectManager);
   const navigate = useNavigate();
-
-  const titleRef = useRef(null);
-  const contentRef = useRef(null);
-  const dateRef = useRef(null);
-  const stateRef = useRef(null);
 
   const [searchParams] = useSearchParams();
 
@@ -43,30 +39,34 @@ const ModalForm = ({ issue, selectedIssue }) => {
     fetchManagerList();
   }, [fetchManagerList]);
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
+    const form = e.target;
+    const id = form.id ? form.id : v1();
+    const title = form[0].value;
+    const content = form[1].value;
+    const endDate = form[2].value;
+    const state = form[4].value;
+    const newIssue = {
+      id,
+      title,
+      content,
+      endDate,
+      state,
+    };
 
     if (selectedIssue) {
-      editIssue(pathId, {
-        id: selectedIssue.id,
-        order: selectedIssue.order,
-        title: titleRef.current.value,
-        content: contentRef.current.value,
-        endDate: dateRef.current.value,
-        state: stateRef.current.value,
-        manager: selectedManager || selectedIssue.manager,
-      });
+      newIssue.manager = selectedManager || selectedIssue.manager;
+      newIssue.order = selectedIssue.order;
+      await editIssue(pathId, newIssue);
+      setIssues((prev) => prev.map((issue) => (issue.id === newIssue.id ? newIssue : issue)));
     } else {
-      postIssue({
-        id: v1(),
-        order: orderHandler(issue, stateRef.current.value),
-        title: titleRef.current.value,
-        content: contentRef.current.value,
-        endDate: dateRef.current.value,
-        state: stateRef.current.value,
-        manager: selectedManager,
-      });
+      newIssue.manager = selectedManager;
+      newIssue.order = orderHandler(issue, newIssue.state);
+      await postIssue(newIssue);
+      setIssues((prev) => [...prev, newIssue]);
     }
+
     navigate('/');
   };
 
@@ -79,12 +79,12 @@ const ModalForm = ({ issue, selectedIssue }) => {
 
   return (
     <>
-      <form onSubmit={submitHandler}>
-        <ModalTitle titleRef={titleRef} issue={selectedIssue} />
-        <ModalContent contentRef={contentRef} issue={selectedIssue} />
-        <ModalEndDate dateRef={dateRef} issue={selectedIssue} />
+      <form id={selectedIssue?.id} onSubmit={submitHandler}>
+        <ModalTitle issue={selectedIssue} />
+        <ModalContent issue={selectedIssue} />
+        <ModalEndDate issue={selectedIssue} />
         <ModalManagers managers={managers} issue={selectedIssue} />
-        <ModalState stateRef={stateRef} state={state} />
+        <ModalState state={state} />
         <div className={styles['button-wrapper']}>
           <button type="submit" className={styles['add-button']}>
             {selectedIssue ? '수정' : '추가'}
