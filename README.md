@@ -170,10 +170,9 @@ searchParams를 이용해 어떤 모달을 보여줄지 결정
 - #### Drag&Drop
 - 드래그 이벤트를 활용해 Drag&Drop 구현
   -onDragStart, onDragOver, onDrop
-
+- 드래그 하고픈 요소에 draggable 속성 추가 
 - onDragStart
-  드래그를 하는 요소에 해당 이벤트 실행
-  요소의 data-state 값과, id값을 가져와 저장
+  드래그를 하는 요소의 data-state 값과, id값을 가져와 저장
 
 ```js
 const onDragStart = useCallback((e) => {
