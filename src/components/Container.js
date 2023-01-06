@@ -13,7 +13,6 @@ const Container = () => {
   const [dragStartCard, setDragStartCard] = useState(null);
 
   const onDragStart = useCallback((e) => {
-    // TODO: 스타일 변경, 포인터 변경
     const { state } = e.target.dataset;
     const { id } = e.target;
     setDragStartCard({ id, state });
@@ -32,8 +31,6 @@ const Container = () => {
         const issue = issueList.find((issue) => issue.id === dragStartCard.id);
         if (!issue) return;
 
-        await editIssue(dragStartCard.id, { ...issue, state: changeState });
-
         setIssueList((prevIssues) =>
           prevIssues.map((issue) => {
             if (issue.id === dragStartCard.id) {
@@ -43,6 +40,7 @@ const Container = () => {
             return issue;
           }),
         );
+        await editIssue(dragStartCard.id, { ...issue, state: changeState });
       }
 
       setDragStartCard(null);

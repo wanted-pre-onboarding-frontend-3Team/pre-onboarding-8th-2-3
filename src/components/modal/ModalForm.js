@@ -12,11 +12,11 @@ import { deleteIssue, editIssue, getManages, postIssue } from 'models/issue';
 import { v1 } from 'uuid';
 import ModalState from './form/ModalState';
 import { orderHandler } from 'utils/orderFilter';
-import { issueState } from 'states/issueState';
+import { issuesSelector } from 'states/issueState';
 
 const ModalForm = ({ issue, selectedIssue }) => {
   const [managers, setManagers] = useState([]);
-  const setIssues = useSetRecoilState(issueState);
+  const setIssues = useSetRecoilState(issuesSelector);
   const selectedManager = useRecoilValue(selectManager);
   const navigate = useNavigate();
 
@@ -58,13 +58,17 @@ const ModalForm = ({ issue, selectedIssue }) => {
     if (selectedIssue) {
       newIssue.manager = selectedManager || selectedIssue.manager;
       newIssue.order = selectedIssue.order;
+
       await editIssue(pathId, newIssue);
-      setIssues((prev) => prev.map((issue) => (issue.id === newIssue.id ? newIssue : issue)));
+
+      setIssues(['PUT', newIssue]);
     } else {
       newIssue.manager = selectedManager;
       newIssue.order = orderHandler(issue, newIssue.state);
+
       await postIssue(newIssue);
-      setIssues((prev) => [...prev, newIssue]);
+
+      setIssues(['POST', newIssue]);
     }
 
     navigate('/');
@@ -72,8 +76,9 @@ const ModalForm = ({ issue, selectedIssue }) => {
 
   const cancelHandler = () => navigate('/');
 
-  const deleteHandler = () => {
-    deleteIssue(pathId);
+  const deleteHandler = async () => {
+    await deleteIssue(pathId);
+    setIssues(['DELETE', pathId]);
     navigate('/');
   };
 
