@@ -5,6 +5,12 @@
 - 팀장: 안지웅
 - 팀원: 이윤진, 박혜선, 최주은
 
+### 배포
+https://pre-onboarding-8th-2-3.vercel.app/
+
+- .env.local ```REACT_APP_URL=https://json-server-vercel-xi.vercel.app```
+
+
 ### 실행 방법
 
 ```
